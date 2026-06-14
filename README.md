@@ -28,8 +28,9 @@ Traditional Aadu Puli Aattam rules vary between villages. This edition uses a
 clear 4/18 ruleset:
 
 1. The tiger player chooses four empty starting intersections.
-2. After all four tigers enter, goats are placed one per turn.
-3. Tigers move after each goat placement; goats move only after all 18 enter.
+2. After all four tigers enter, a goat turn may place a new goat or move one
+   goat by one connected step.
+3. The tiger side moves after every goat placement or movement.
 4. Pieces move one step along a connected board line.
 5. A tiger captures by jumping over one adjacent goat into the empty point
    directly behind it.
@@ -55,7 +56,14 @@ flutter test
 ```
 
 The test suite covers board topology, placement, movement restrictions,
-captures, both victory paths, undo, AI capture priority, and the home screen.
+captures, both victory paths, undo, goat AI placement, compact layouts, and the
+home screen.
+
+## Documentation
+
+- [Technical Guide](docs/TECHNICAL_GUIDE.md): architecture, exact board graph,
+  state machine, AI behavior, package and platform versions, testing, and
+  change-safety notes for developers and coding agents.
 
 ## Project Structure
 
@@ -66,6 +74,7 @@ lib/src/widgets/    Board, pieces, background, and rules UI
 lib/src/theme/      Colors and Material theme
 test/               Logic and widget tests
 design/             Source artwork
+docs/               Screenshots and technical documentation
 ```
 
 ## License

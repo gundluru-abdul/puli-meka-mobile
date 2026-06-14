@@ -69,7 +69,7 @@ class _RulesSheet extends StatelessWidget {
                 number: '02',
                 title: 'Bring in the herd',
                 body:
-                    'Goats enter one at a time on empty intersections. After each goat enters, a tiger may move. Goats cannot move until all 18 have entered.',
+                    'On a goat turn, place a new goat on an empty intersection or move one goat by one connected step. Then the tiger side takes its turn.',
               ),
               const _Rule(
                 number: '03',

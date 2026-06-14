@@ -113,7 +113,24 @@ class AaduPuliGame {
     }
 
     if (turn == PlayerSide.goats && isGoatPlacement) {
-      return placeGoat(node);
+      if (pieces[node] == PieceType.goat) {
+        selectedNode = selectedNode == node ? null : node;
+        return true;
+      }
+
+      final selected = selectedNode;
+      if (selected != null && !pieces.containsKey(node)) {
+        final action = legalActionsFor(
+          selected,
+        ).where((move) => move.to == node).firstOrNull;
+        if (action != null) return applyAction(action);
+      }
+
+      if (!pieces.containsKey(node)) {
+        selectedNode = null;
+        return placeGoat(node);
+      }
+      return false;
     }
 
     final ownPiece = turn == PlayerSide.goats
@@ -200,8 +217,6 @@ class AaduPuliGame {
   List<GameAction> legalActionsFor(int node) {
     final piece = pieces[node];
     if (piece == null || isTigerSetup) return const [];
-    if (piece == PieceType.goat && isGoatPlacement) return const [];
-
     final moves = <GameAction>[];
     for (final destination in adjacency[node]!) {
       if (!pieces.containsKey(destination)) {

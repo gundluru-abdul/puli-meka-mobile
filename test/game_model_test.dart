@@ -36,7 +36,21 @@ void main() {
       expect(game.goatsPlaced, 1);
       expect(game.pieceAt(1), PieceType.goat);
       expect(game.turn, PlayerSide.tigers);
-      expect(game.legalActionsFor(1), isEmpty);
+      expect(game.legalActionsFor(1), isNotEmpty);
+    });
+
+    test('an already placed goat can move before all eighteen enter', () {
+      final game = _gameAfterTigerSetup();
+      game.placeGoat(1);
+      game
+        ..turn = PlayerSide.goats
+        ..selectOrAct(1);
+
+      expect(game.selectOrAct(7), isTrue);
+      expect(game.pieceAt(1), isNull);
+      expect(game.pieceAt(7), PieceType.goat);
+      expect(game.goatsPlaced, 1);
+      expect(game.turn, PlayerSide.tigers);
     });
   });
 

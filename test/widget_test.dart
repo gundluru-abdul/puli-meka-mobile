@@ -9,7 +9,7 @@ void main() {
     await tester.pumpWidget(const AaduPuliApp());
 
     expect(find.text('AADU\nPULI AATTAM'), findsOneWidget);
-    expect(find.text('Lead the Tigers'), findsOneWidget);
+    expect(find.text('Play as Tigers'), findsOneWidget);
     expect(find.text('Pass & Play'), findsOneWidget);
   });
 
@@ -20,7 +20,7 @@ void main() {
     await tester.pumpWidget(const AaduPuliApp());
     await tester.pumpAndSettle();
 
-    expect(find.text('Lead the Tigers'), findsOneWidget);
+    expect(find.text('Play as Tigers'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 

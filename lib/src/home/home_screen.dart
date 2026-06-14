@@ -66,8 +66,8 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             _MenuButton(
                               icon: Icons.local_fire_department_rounded,
-                              label: 'Lead the Tigers',
-                              subtitle: 'Place 4 tigers and hunt the herd',
+                              label: 'Play as Tigers',
+                              subtitle: 'You place all 4 tigers first',
                               primary: true,
                               onPressed: () =>
                                   _openGame(context, GameMode.vsGoatAi),
